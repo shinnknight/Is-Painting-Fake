@@ -1,0 +1,29 @@
+---
+title: "ML-Final Project-Gao"
+author: "Shin Gao"
+date: "11/14/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Question 1. (6 points)
+1a) Load the train dataset.csv and split the data into train, cross-validation and test dataframes.
+```{r}
+library(dplyr)
+train.df = read.csv('/Users/tinggao/Documents/CU course/machine learning/Final/train_dataset.csv')
+test.df = read.csv('/Users/tinggao/Documents/CU course/machine learning/Final/test_dataset.csv')
+train.rows = sample(1:nrow(train.df),round(nrow(train.df) * 0.6))
+test.rows = data.frame(rows=c(1:nrow(train.df)))[-train.rows,]
+```
+
+1b) Plot the scatterplot for current retail clean price vs current retail average price. Is relationship linear?
+```{r}
+plot(train.df$MMRCurrentRetailCleanPrice,train.df$MMRCurrentAuctionAveragePrice)
+corr
+```
+
+
+
+1c) Plot distributions for the Painting age, Bids, warranty costs, acquisitions costs, etc. Which distributions are skewed?
